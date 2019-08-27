@@ -1,0 +1,31 @@
+
+#The sklearn.feature_extraction module deals with feature extraction from raw data.
+#In this case we are going to be extracting a '.text'.
+#From this module we are importing 'CountVectorizer' 
+
+  from sklearn.feature_extraction.text import CountVectorizer
+
+
+#An array variable storing 2 list of sentences
+  text = ['Hello my name is Reayn','Hola Meyamo Reyan']
+
+#I have assigned a variable called 'vectorizer' to our countectorizer function 'CountVectorizer()'
+  vectorizer = CountVectorizer()
+
+#z is extracting every single word from the my 'text array list'
+#It then stores them in a single array list.
+  z= vectorizer.get_feature_names()
+  print(z)
+#Output>> ['hello', 'hola', 'is', 'meyamo', 'my', 'name', 'reayn', 'reyan']
+#Make sence?
+
+#X creates a token for each count
+#For example if we look at the first lsit from output of z,
+#It is 'hello', so how manny of the word hello do we hvae in the first sentence in the text array list?...
+  X= vectorizer.fit_transform(text)
+  print('\n',X.toarray())
+#Output>>  [[1 0 1 0 1 1 1 0]
+            [0 1 0 1 0 0 0 1]]
+#so looking at the 2x8 matrix can we see the pattern with: ['hello', 'hola', 'is', 'meyamo', 'my', 'name', 'reayn', 'reyan']
+#And ['Hello my name is Reayn','Hola Meyamo Reyan']
+#'toarray()' allows us to plot in ndarray
